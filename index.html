@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Merge sort</title>
+</head>
+
+<body>
+
+   </br>
+  
+  <script>
+
+  console.log("sağdaki meyveyi tercih ediyosan Ok");
+  console.log("soldaki meyveyi tercih ediyosan cancel");
+
+  array = ["apples","avocados","bananas","cherries","kiwi","mango"];
+  console.log(array);
+  
+  array = mergeSort(array);
+  console.log("your choice of fruits from least to most favorite:")
+  console.log(array);
+  function mergeSort (arr) {
+  if (arr.length === 1) {
+    return arr
+  }
+
+  const middle = Math.floor(arr.length / 2) 
+  const left = arr.slice(0, middle) 
+  const right = arr.slice(middle) 
+
+  return merge(
+    mergeSort(left),
+    mergeSort(right)
+  )
+  }
+
+function merge (left, right) {
+  let result = []
+  let indexLeft = 0
+  let indexRight = 0
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    console.log("currently comparing: " + left[indexLeft] + " and " + right[indexRight])
+    if (confirm(" "+ left[indexLeft] + " or " + right[indexRight])) {
+      result.push(left[indexLeft])
+      indexLeft++
+    } else {
+      result.push(right[indexRight])
+      indexRight++
+    }
+  }
+
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+}
+
+
+  </script>
+</body>
+</html>
