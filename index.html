@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
   
     <title>Merge sort</title>
+   
 </head>
 
 <body>
+
 
 Array size: <input type="number" id="array_size" name="fname"><br>
    </br>
@@ -14,6 +16,7 @@ Array size: <input type="number" id="array_size" name="fname"><br>
  </br>
   
   <script>
+    JSDialog.showMessageDialog("Hello, world");
 
 
   //console.log("sağdaki meyveyi tercih ediyosan Ok");
@@ -65,11 +68,13 @@ function merge (left, right) {
   while (indexLeft < left.length && indexRight < right.length) {
     console.log("currently comparing: " + left[indexLeft] + " and " + right[indexRight])
     if (confirm(" "+ left[indexLeft] + " or " + right[indexRight])) {
-      result.push(left[indexLeft])
-      indexLeft++
-    } else {
+      
       result.push(right[indexRight])
       indexRight++
+    } else {
+      result.push(left[indexLeft])
+      indexLeft++
+      
     }
   }
 
