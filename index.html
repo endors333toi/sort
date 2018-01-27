@@ -8,19 +8,40 @@
 
 <body>
 
+Array size: <input type="number" id="array_size" name="fname"><br>
    </br>
+   <button onclick="start_sort()">Click me</button>
+ </br>
   
   <script>
 
-  console.log("sağdaki meyveyi tercih ediyosan Ok");
-  console.log("soldaki meyveyi tercih ediyosan cancel");
 
-  array = ["apples","avocados","bananas","cherries","kiwi","mango"];
-  console.log(array);
+  //console.log("sağdaki meyveyi tercih ediyosan Ok");
+  //console.log("soldaki meyveyi tercih ediyosan cancel");
+
+  //array = ["apples","avocados","bananas","cherries","kiwi","mango"];
+  //console.log(array);
   
+  
+
+  function start_sort(){
+  array_size = document.getElementById('array_size').value;
+  array = init(array_size);
   array = mergeSort(array);
   console.log("your choice of fruits from least to most favorite:")
   console.log(array);
+  document.write("your choice of fruits from least to most favorite:")
+  document.write(array.toString());
+  }
+
+  function init(array_size){
+    array = [];
+    for (i = 0; i < array_size; i++) { 
+      array[i] = "Obj_" + i;
+    }
+    return array
+  }
+
   function mergeSort (arr) {
   if (arr.length === 1) {
     return arr
